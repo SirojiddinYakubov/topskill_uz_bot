@@ -6,7 +6,7 @@ from aiogram import types, Dispatcher, Bot
 from fastapi import FastAPI
 
 from bot.core.config import settings
-from bot.core.core import dp, bot, user_handler
+from bot.core.handler import dp, bot, user_handler
 from bot.schemas.message_schemas import GetMessageSchema
 
 app = FastAPI()

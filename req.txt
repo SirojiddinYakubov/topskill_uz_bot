@@ -6,3 +6,5 @@ fastapi
 redis
 motor
 fastapi-babel
+pyotp
+httpx

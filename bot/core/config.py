@@ -15,7 +15,7 @@ class Settings(BaseSettings):
 
     FRONT_BASE_URL: Optional[AnyHttpUrl] = "https://topskill.uz"
     BACK_BASE_URL: Optional[AnyHttpUrl] = "https://topskill.uz"
-    WEBHOOK_HOST: Optional[AnyHttpUrl] = "https://15cc-195-158-30-67.ngrok-free.app"
+    WEBHOOK_HOST: Optional[AnyHttpUrl] = "https://cfd3-195-158-30-67.ngrok-free.app"
 
     TOKEN_API: Optional[str]
 
@@ -45,6 +45,14 @@ class Settings(BaseSettings):
         )
 
     ADMIN_ID: Union[str, int]
+
+    OTP_CODE_VALID_SECONDS: Optional[int] = 30000000
+
+    ESKIZ_EMAIL: str
+    ESKIZ_PASSWORD: str
+    ESKIZ_TOKEN: Optional[str]
+
+    AWS_BUCKET_URL: str
 
     class Config:
         env_file = f"{BASE_DIR}/.env"

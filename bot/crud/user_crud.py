@@ -51,7 +51,8 @@ async def create_user(_id: int, **kwargs):
     data = {"_id": _id}
     data.update(**kwargs)
     print(data)
-    return await user_collection.insert_one(data)
+    await user_collection.insert_one(data)
+    return await user_collection.find_one({"_id": _id})
     # return await user_collection.insert_one({
     #     "_id": _id,
     #     "created_at": str(datetime.now()),
@@ -62,20 +63,12 @@ async def create_user(_id: int, **kwargs):
     # })
 
 
-async def update_user(_id: int, phone_number: str, **kwargs):
-    logging.info(f"Inside update_user: _id: {_id}, phone_number: {phone_number}")
-    user_id = await get_user_id(phone_number)
+async def update_user(_id: int, **kwargs):
+    logging.info(f"Inside update_user: _id: {_id}, kwargs: {kwargs}")
 
-    if not user_id:
-        return None
-
-    result = await user_collection.update_one({"_id": _id}, {"$set": {
-        "updated_at": str(datetime.now()),
-        "phone": phone_number,
-        "user_id": user_id,
-    }})
+    await user_collection.update_one({"_id": _id}, {"$set": kwargs})
 
     # print('updated %s document' % result)
     # new_document = await user_collection.find_one({'_id': _id})
     # print('document is now %s' % new_document)
-    return result
+    return await user_collection.find_one({"_id": _id})

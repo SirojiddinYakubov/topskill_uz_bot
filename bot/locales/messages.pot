@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-07 20:22+0500\n"
+"POT-Creation-Date: 2023-07-09 18:12+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,94 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: bot/handlers/main_handlers.py:42
+#: bot/handlers/course_handlers.py:30
 msgid ""
-"Men - topskill botiman.\n"
+"\n"
+"                        <b>Kurs nomi:</b> <a "
+"href='{href_url}'>{course_title}</a>\n"
+"<b>Kurs narxi:</b> {course_price:,} so'm\n"
+"\n"
+"8-qismga bo'lib to'lash orqali <s>{course_price:,}</s> ga emas atigi "
+"{part_price:,} so'mga sotib oling. 🔥\n"
+"                        "
+msgstr ""
+
+#: bot/handlers/course_handlers.py:47
+msgid "{total_results} ta kurs chiqarildi"
+msgstr ""
+
+#: bot/handlers/main_handlers.py:56
+msgid ""
+"<b>Men - topskill botiman.</b>\n"
 "\n"
 "Sizni nima qiziqtiradi?"
 msgstr ""
 
-#: bot/handlers/main_handlers.py:51
-msgid "Til muvaffaqiyatli sozlandi. Endi menga ism familiyangizni jo'nating!"
+#: bot/handlers/main_handlers.py:65
+msgid "Til muvaffaqiyatli sozlandi. Endi menga ismingizni jo'nating!"
 msgstr ""
 
-#: bot/keyboards/user_keyboards.py:70
+#: bot/handlers/main_handlers.py:70
+msgid ""
+"So'rovingiz qabul qilindi! Tez oraqa mutaxasislarimiz siz bilan "
+"bog'lanishadi!"
+msgstr ""
+
+#: bot/handlers/user_handlers.py:34
+msgid "Iltimos menga ismingizni jo'nating!"
+msgstr ""
+
+#: bot/handlers/user_handlers.py:41
+msgid "{name}, telefon raqamingizni ulashing!"
+msgstr ""
+
+#: bot/handlers/user_handlers.py:46
+msgid "Ism kamida 3 ta harfdan iborat bo'lishi kerak!"
+msgstr ""
+
+#: bot/handlers/user_handlers.py:58
+msgid "{phone} raqamiga sms kod jo'natildi. Sms kodni kiriting:"
+msgstr ""
+
+#: bot/handlers/user_handlers.py:62
+msgid "Iltimos telefon raqamingizni ulashing!"
+msgstr ""
+
+#: bot/handlers/user_handlers.py:74
+msgid ""
+"Tasdiqlash kodi: {otp}\n"
+"https://t.me/topskill_uz_bot"
+msgstr ""
+
+#: bot/handlers/user_handlers.py:92
+msgid "Tasdiqlash kodi noto'g'ri!"
+msgstr ""
+
+#: bot/keyboards/course_keyboards.py:11
+msgid "🌐 Saytda ko'rish"
+msgstr ""
+
+#: bot/keyboards/course_keyboards.py:14
+msgid "💳 Sotib olish"
+msgstr ""
+
+#: bot/keyboards/main_keyboards.py:9
+msgid "🛄 Kursni tanlang."
+msgstr ""
+
+#: bot/keyboards/main_keyboards.py:12
 msgid "🤔 Savollarga javob toping."
 msgstr ""
 
-#: bot/keyboards/user_keyboards.py:73
+#: bot/keyboards/main_keyboards.py:15
 msgid "👋🏼 Aloqa qiling va bepul maslahat oling."
 msgstr ""
 
-#: bot/keyboards/user_keyboards.py:76
-msgid "💰 Kursni tanlang."
+#: bot/keyboards/main_keyboards.py:22
+msgid "⬅️ Bosh menu"
+msgstr ""
+
+#: bot/keyboards/user_keyboards.py:36
+msgid "Telefon raqamni ulashish 📲"
 msgstr ""
 
