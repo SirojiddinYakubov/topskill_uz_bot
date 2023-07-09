@@ -1,1 +1,1 @@
-# topskill_study_bot
+# topskill_uz_bot

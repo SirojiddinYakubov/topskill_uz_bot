@@ -11,9 +11,16 @@ from aiogram.dispatcher.middlewares import BaseMiddleware
 
 class GetAcceptLanguageMiddleware(BaseMiddleware):
     async def on_process_message(self, message: types.Message, data: dict):
+        await self.set_lang(message.from_user.id)
+
+    async def on_process_callback_query(self, callback: types.CallbackQuery, data: dict):
+        await self.set_lang(callback.from_user.id)
+
+    @classmethod
+    async def set_lang(cls, user_id: int):
         try:
-            user_data = await user_collection.find_one({'_id': message.from_user.id})
-            if user_data:
+            user_data = await user_collection.find_one({'_id': user_id})
+            if user_data and 'lang' in user_data:
                 lang = user_data['lang']
             else:
                 lang = ALLOWED_LANGUAGES[0]

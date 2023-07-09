@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-07 20:22+0500\n"
-"PO-Revision-Date: 2023-07-07 19:05+0500\n"
+"POT-Creation-Date: 2023-07-09 18:12+0500\n"
+"PO-Revision-Date: 2023-07-09 16:14+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -19,9 +19,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: bot/handlers/main_handlers.py:42
+#: bot/handlers/course_handlers.py:30
 msgid ""
-"Men - topskill botiman.\n"
+"\n"
+"                        <b>Kurs nomi:</b> <a "
+"href='{href_url}'>{course_title}</a>\n"
+"<b>Kurs narxi:</b> {course_price:,} so'm\n"
+"\n"
+"8-qismga bo'lib to'lash orqali <s>{course_price:,}</s> ga emas atigi "
+"{part_price:,} so'mga sotib oling. 🔥\n"
+"                        "
+msgstr ""
+"\n"
+"                        <b>Название курса:</b> <a "
+"href='{href_url}'>{course_title}</a>\n"
+"<b>Цена курса:</b> {course_price:,} сум\n"
+"\n"
+"Оплачивая 8 частями, а не только <s>{course_price:,}</s> купите за "
+"{part_price:,} сум. 🔥\n"
+"                        "
+
+#: bot/handlers/course_handlers.py:47
+msgid "{total_results} ta kurs chiqarildi"
+msgstr "Всего курсов: {total_results}"
+
+#: bot/handlers/main_handlers.py:56
+msgid ""
+"<b>Men - topskill botiman.</b>\n"
 "\n"
 "Sizni nima qiziqtiradi?"
 msgstr ""
@@ -29,22 +53,74 @@ msgstr ""
 "\n"
 "Что вас интересует?"
 
-#: bot/handlers/main_handlers.py:51
-msgid "Til muvaffaqiyatli sozlandi. Endi menga ism familiyangizni jo'nating!"
+#: bot/handlers/main_handlers.py:65
+msgid "Til muvaffaqiyatli sozlandi. Endi menga ismingizni jo'nating!"
 msgstr "Язык успешно установлен. Напишите мне свое имя и фамилию!"
 
-#: bot/keyboards/user_keyboards.py:70
+#: bot/handlers/main_handlers.py:70
+msgid ""
+"So'rovingiz qabul qilindi! Tez oraqa mutaxasislarimiz siz bilan "
+"bog'lanishadi!"
+msgstr ""
+"Ваша заявка принята! Наши специалисты свяжутся с вами в ближайшее время!"
+
+#: bot/handlers/user_handlers.py:34
+msgid "Iltimos menga ismingizni jo'nating!"
+msgstr "Пожалуйста, пришлите мне ваше имя!"
+
+#: bot/handlers/user_handlers.py:41
+msgid "{name}, telefon raqamingizni ulashing!"
+msgstr "{name}, поделитесь своим номером телефона!"
+
+#: bot/handlers/user_handlers.py:46
+msgid "Ism kamida 3 ta harfdan iborat bo'lishi kerak!"
+msgstr "Имя должно состоять не менее чем из 3 букв!"
+
+#: bot/handlers/user_handlers.py:58
+msgid "{phone} raqamiga sms kod jo'natildi. Sms kodni kiriting:"
+msgstr "SMS-код отправлен на {phone}. Введите SMS-код:"
+
+#: bot/handlers/user_handlers.py:62
+msgid "Iltimos telefon raqamingizni ulashing!"
+msgstr "Пожалуйста, поделитесь своим номером телефона!"
+
+#: bot/handlers/user_handlers.py:74
+msgid ""
+"Tasdiqlash kodi: {otp}\n"
+"https://t.me/topskill_uz_bot"
+msgstr ""
+"Код подтверждения: {otp}\n"
+"https://t.me/topskill_uz_bot"
+
+#: bot/handlers/user_handlers.py:92
+msgid "Tasdiqlash kodi noto'g'ri!"
+msgstr "Неверный код подтверждения!"
+
+#: bot/keyboards/course_keyboards.py:11
+msgid "🌐 Saytda ko'rish"
+msgstr "🌐 Посмотреть на сайте"
+
+#: bot/keyboards/course_keyboards.py:14
+msgid "💳 Sotib olish"
+msgstr "💳 Купить курс"
+
+#: bot/keyboards/main_keyboards.py:9
+msgid "🛄 Kursni tanlang."
+msgstr "💰 Выбрать курс."
+
+#: bot/keyboards/main_keyboards.py:12
 msgid "🤔 Savollarga javob toping."
 msgstr "🤔 Найти ответы на вопросы."
 
-#: bot/keyboards/user_keyboards.py:73
+#: bot/keyboards/main_keyboards.py:15
 msgid "👋🏼 Aloqa qiling va bepul maslahat oling."
 msgstr "👋🏼 Связаться и получить бесплатную консультацию."
 
-#: bot/keyboards/user_keyboards.py:76
-msgid "💰 Kursni tanlang."
-msgstr "💰 Выбрать курс."
+#: bot/keyboards/main_keyboards.py:22
+msgid "⬅️ Bosh menu"
+msgstr "⬅️ Главное меню"
 
-#~ msgid "Assalomu aleykum"
-#~ msgstr "Здравствуйте"
+#: bot/keyboards/user_keyboards.py:36
+msgid "Telefon raqamni ulashish 📲"
+msgstr "Поделитесь номером телефона 📲"
 

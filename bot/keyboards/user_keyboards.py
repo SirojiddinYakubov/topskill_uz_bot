@@ -1,9 +1,10 @@
 from aiogram import types
-from pydantic.networks import AnyHttpUrl
 from aiogram.utils.callback_data import CallbackData
+from pydantic.networks import AnyHttpUrl
+
+from bot.core.babel_config import _
 from bot.core.config import settings
 from bot.schemas.message_schemas import HomeworkStatusEnum
-from bot.core.babel_config import _
 
 lang_cb = CallbackData("lang_cb", 'action', 'data')
 
@@ -32,7 +33,7 @@ def signup_ikb() -> types.InlineKeyboardMarkup:
 
 def get_contact_kb() -> types.ReplyKeyboardMarkup:
     return types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(
-        types.KeyboardButton("Telefon raqamni ulashish 📲", request_contact=True)
+        types.KeyboardButton(_("Telefon raqamni ulashish 📲"), request_contact=True)
     )
 
 
@@ -65,17 +66,4 @@ def get_language_kb():
     ])
 
 
-def get_main_menu_kb():
-    return types.InlineKeyboardMarkup(inline_keyboard=[
-        [
-            types.InlineKeyboardButton(_("🤔 Savollarga javob toping."), callback_data="faq"),
-            types.InlineKeyboardButton(_("💰 Kursni tanlang."), callback_data="select_course")
-        ],
-        [
-            types.InlineKeyboardButton(_("👋🏼 Aloqa qiling va bepul maslahat oling."), callback_data="conclusion")
-        ],
-        [
-            types.InlineKeyboardButton(_("🤔 Savollarga javob toping."), callback_data="faq"),
-            types.InlineKeyboardButton(_("💰 Kursni tanlang."), callback_data="select_course")
-        ],
-    ])
+
