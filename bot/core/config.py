@@ -15,7 +15,7 @@ class Settings(BaseSettings):
 
     FRONT_BASE_URL: Optional[AnyHttpUrl] = "https://topskill.uz"
     BACK_BASE_URL: Optional[AnyHttpUrl] = "https://topskill.uz"
-    WEBHOOK_HOST: Optional[AnyHttpUrl] = "https://b880-195-158-30-67.ngrok-free.app"
+    WEBHOOK_HOST: Optional[AnyHttpUrl] = "https://topskill.uz"
 
     TOKEN_API: Optional[str]
 
