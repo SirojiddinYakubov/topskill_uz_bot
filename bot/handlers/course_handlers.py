@@ -4,7 +4,7 @@ from bot.crud.user_crud import user_collection
 from bot.handlers.base_handler import BaseHandler
 from aiogram import types
 import httpx
-from bot.keyboards.course_keyboards import menu_cb, get_course_ikb
+from bot.keyboards.course_keyboards import menu_cb, get_course_ikb, get_paginated_course_ikb
 from bot.keyboards.main_keyboards import go_main_menu
 from bot.core.babel_config import _
 
@@ -19,7 +19,7 @@ class CourseHandler(BaseHandler):
         from bot.core.handler import main_handler
         user = await user_collection.find_one({"_id": callback.from_user.id})
         async with httpx.AsyncClient() as client:
-            r = await client.get(f"{settings.FRONT_BASE_URL}/api/v1/site/course/list/?page_size=2")
+            r = await client.get(f"{settings.FRONT_BASE_URL}/api/v1/site/course/list/?page_size=50")
             if r.status_code == 200:
                 for course in r.json()['results']:
                     url = f"{settings.FRONT_BASE_URL}/{user['lang']}/courses/{course['slug']}"
@@ -48,6 +48,41 @@ class CourseHandler(BaseHandler):
                     reply_markup=types.ReplyKeyboardRemove())
                 await main_handler.go_main_menu(callback.message)
 
-        # return await callback.message.answer(
-        #     "Ushbu ro'yhat ichida bizning barcha kurslarimiz mavjud!\n\n <a href='https://telegra.ph/Taomnoma-06-03'>Kurslar ro'yxati</a>",
-        #     reply_markup=go_main_menu())
+    # async def view_course_with_pagination(self, callback: types.CallbackQuery, callback_data: dict):
+    # from bot.core.handler import main_handler
+    # user = await user_collection.find_one({"_id": callback.from_user.id})
+    # async with httpx.AsyncClient() as client:
+    #     page_number = 1
+    #     r = await client.get(
+    #         f"{settings.FRONT_BASE_URL}/api/v1/site/course/list/?page_size=1&page_number={page_number}")
+    #     if r.status_code == 200:
+    #         course = r.json()['results'][0]
+    #         url = f"{settings.FRONT_BASE_URL}/{user['lang']}/courses/{course['slug']}"
+    #         if "discount" in course:
+    #             course_price = course['price'] * (1 - course['discount']['percent'] / 100)
+    #         else:
+    #             course_price = course['price']
+    #         caption = _(
+    #             """
+    #             <b>Kurs nomi:</b> <a href='{href_url}'>{course_title}</a>\n<b>Kurs narxi:</b> {course_price:,} so'm\n\n8-qismga bo'lib to'lash orqali <s>{course_price:,}</s> ga emas atigi {part_price:,} so'mga sotib oling. 🔥
+    #             """
+    #         ).format(
+    #             href_url=url,
+    #             course_title=course['translations'][0]['title'],
+    #             course_price=int(course_price),
+    #             part_price=int(course_price * 1.2 // 8)
+    #         )
+    #
+    #         await self.bot.send_photo(callback.from_user.id,
+    #                                   photo=f"{settings.AWS_BUCKET_URL}{course['banner_image']['path']}",
+    #                                   caption=caption,
+    #                                   reply_markup=get_paginated_course_ikb(),
+    #                                   parse_mode="HTML")
+    #     await self.get_paginated_courses()
+    #
+    # async def get_paginated_courses(self, page_number: int = 1, page_size: int = 1):
+    #     url = f"{settings.FRONT_BASE_URL}/api/v1/site/course/list/?page_size={page_size}&page_number={page_number}"
+    #     print(url)
+    #     async with httpx.AsyncClient() as client:
+    #         r = await client.get(url)
+    #         print(r.json())

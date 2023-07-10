@@ -11,11 +11,11 @@ BASE_DIR = pathlib.Path(__file__).parents[2]
 class Settings(BaseSettings):
     BOT_API: str
     BOT_HASH: str
-    SVC_PORT: Optional[int] = 8002
+    SVC_PORT: Union[int, str]
 
     FRONT_BASE_URL: Optional[AnyHttpUrl] = "https://topskill.uz"
     BACK_BASE_URL: Optional[AnyHttpUrl] = "https://topskill.uz"
-    WEBHOOK_HOST: Optional[AnyHttpUrl] = "https://cfd3-195-158-30-67.ngrok-free.app"
+    WEBHOOK_HOST: Optional[AnyHttpUrl] = "https://b880-195-158-30-67.ngrok-free.app"
 
     TOKEN_API: Optional[str]
 

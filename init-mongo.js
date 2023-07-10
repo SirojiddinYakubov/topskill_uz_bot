@@ -5,8 +5,12 @@ db.createUser(
         roles: [
             {
                 role: "readWrite",
-                db: "topskill_study_db"
-            }
+                db: "info_bot_db"
+            },
+            {
+                role: "readWrite",
+                db: "aiogram_fsm"
+            },
         ]
     }
 )
