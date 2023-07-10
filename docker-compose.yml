@@ -1,21 +1,21 @@
 version: '3.8'
 services:
-  study_bot:
-    container_name: study_bot
+  info_bot:
+    container_name: info_bot
     build: .
-    image: study_bot_image:latest
+    image: info_bot_image:latest
     restart: always
     volumes:
       - ./:/code
     ports:
-      - "8008:8008"
+      - "${SVC_PORT}:${SVC_PORT}"
     networks:
-      - bot-network
+      - info-bot-network
     depends_on:
-      - mongo_db
+      - info_bot_db
 
-  mongo_db:
-    container_name: mongo_db
+  info_bot_db:
+    container_name: info_bot_db
     image: mongo:6-jammy
     restart: always
     command: mongod --port ${MONGODB_PORT}
@@ -28,13 +28,13 @@ services:
       MONGO_INITDB_DATABASE: ${MONGODB_DATABASE}
     volumes:
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-      - mongo_data:/data/db
+      - info_bot_data:/data/db
     networks:
-      - bot-network
+      - info-bot-network
 volumes:
-  mongo_data:
-    name: mongo_data
+  info_bot_data:
+    name: info_bot_data
 
 networks:
-  bot-network:
-    name: bot-network
+  info-bot-network:
+    name: info-bot-network

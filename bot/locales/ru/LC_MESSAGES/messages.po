@@ -106,7 +106,7 @@ msgstr "💳 Купить курс"
 
 #: bot/keyboards/main_keyboards.py:9
 msgid "🛄 Kursni tanlang."
-msgstr "💰 Выбрать курс."
+msgstr "🛄 Выбрать курс."
 
 #: bot/keyboards/main_keyboards.py:12
 msgid "🤔 Savollarga javob toping."
